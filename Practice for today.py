@@ -152,4 +152,16 @@ def is_valid(isbn):
     total = sum((10 - i) * digits[i] for i in range(10))
     return total % 11 == 0
 
+#caesar shift
+def rotate(text, key):
+    result =""
+    for ch in text:
+        if ch.isupper():
+            result+= chr((ord(ch) - 65 + key) % 26 + 65 )
+        elif ch.islower():
+            result += chr((ord(ch) - 97 + key) % 26 + 97)
+        else:
+            result += ch
+
+    return result 
     
