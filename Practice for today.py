@@ -100,3 +100,14 @@ def translate(text):
 
     return " ".join(translate_word(w) for w in text.split())
 
+#panagram
+def is_pangram(sentence):
+    alphabets = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 
+ 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 
+ 'u', 'v', 'w', 'x', 'y', 'z']
+    sentence = sentence.lower()
+    for ch in alphabets:
+        if ch not in sentence:
+            return False
+    return True
+
