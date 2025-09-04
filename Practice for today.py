@@ -265,3 +265,35 @@ def decrypt(text, shift):
 encrypted_text = 'Pbhentr vf sbhaq va hayvxryl cynprf.'
 decrypted_text = decrypt(encrypted_text, 13)
 print(decrypted_text)
+#RPG Character
+full_dot = '●'
+empty_dot = '○'
+max_dots = 10
+
+def create_character(name, strength, intelligence, charisma):
+    if not isinstance(name, str):
+        return "The character name should be a string" 
+    if len(name) > 10:
+        return "The character name is too long"
+    if " " in name:
+        return "The character name should not contain spaces"
+
+    stats = {"strength":strength, "intelligence":intelligence, "charisma":charisma}
+
+    for stat in stats.values():
+        if not isinstance(stat, int):
+            return "All stats should be integers"
+        if stat < 1:
+            return "All stats should be no less than 1"
+        if stat > 4:
+            return "All stats should be no more than 4"
+    if sum(stats.values()) != 7:
+        return "The character should start with 7 points"
+
+    return "\n".join([
+        name,
+        f"STR {full_dot * strength}{empty_dot * (max_dots - strength)}",
+        f"INT {full_dot * intelligence}{empty_dot * (max_dots - intelligence)}",
+        f"CHA {full_dot * charisma}{empty_dot * (max_dots - charisma)}",
+    ])
+
