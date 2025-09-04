@@ -321,3 +321,12 @@ poem2 = 'The grass is green\nhere and there\nhoping for rain\nbefore it turns ye
 poem3 = 'There\nonce\nwas\na\ndragon'
 
 print(pin_extractor([poem, poem2, poem3]))
+#pattern generator
+def number_pattern(n):
+    if not isinstance(n, int):
+        return "Argument must be an integer value."
+    if n < 1:
+        return "Argument must be an integer greater than 0."
+    
+    return " ".join(str(i) for i in range(1, n +1))
+        
